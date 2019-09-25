@@ -1,0 +1,88 @@
+<form [formGroup]="form" novalidate>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="nomeInput">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="nome"
+          aria-describedby="nomeHelp"
+          placeholder="Digite o nome"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="enderecoInput">Endereço</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="endereco"
+          aria-describedby="enderecoHelp"
+          placeholder="Digite o endereço"
+        />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="numero">Número</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="numero"
+          aria-describedby="numeroHelp"
+        />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="complemento">Complemento</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="complemento"
+          aria-describedby="complementoHelp"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="cep">CEP</label>
+        <input type="text" class="form-control" formControlName="cep" aria-describedby="cepHelp" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="cidade">Cidade</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="cidade"
+          aria-describedby="cidadeHelp"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="estadoInput">Estado</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="estado"
+          aria-describedby="estadoHelp"
+        />
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-outline-success mr-2" (click)="salvar()">Salvar</button>
+  <a class="btn btn-outline-danger mr-2" href="/lista">Cancelar</a>
+</form>

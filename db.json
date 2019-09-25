@@ -1,0 +1,44 @@
+{
+  "endereco": [
+    {
+      "id": 1,
+      "nome": "Maria Tereza da Silva",
+      "endereco": "Praça da Sé",
+      "numero": "233",
+      "complemento": "Lado A",
+      "cep": "01000100",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "id": 2,
+      "nome": "Jaqueline Souza",
+      "endereco": "Praça da Sé",
+      "numero": "443",
+      "complemento": "Bloca A apt 45",
+      "cep": "0100100",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "id": 3,
+      "nome": "Anderson Carvalho",
+      "endereco": "Praça da Sé",
+      "numero": "156",
+      "complemento": "Lado b",
+      "cep": "0100100",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "id": 4,
+      "nome": "Anderson Carvalho2",
+      "endereco": "Praça da Sé",
+      "numero": "156",
+      "complemento": "Lado b",
+      "cep": "0100100",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    }
+  ]
+}

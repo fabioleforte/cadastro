@@ -1,0 +1,31 @@
+<div>
+  <table class="table table-striped table-hover">
+    <thead class="thead">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">Número</th>
+        <th scope="col">Complemento</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of enderecos; let i = index">
+        <td>{{ item.nome }}</td>
+        <td>{{ item.endereco }}</td>
+        <td>{{ item.numero }}</td>
+        <td>{{ item.complemento }}</td>
+        <td>
+          <div class="float-right">
+            <button type="button" class="btn btn-outline-primary btn-sm mr-2" [routerLink]="['/cadastro', i]">
+              Alterar
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm" [routerLink]="['/cadastro', i]">
+              Excluir
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

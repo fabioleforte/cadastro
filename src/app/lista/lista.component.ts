@@ -15,10 +15,28 @@ export class ListaComponent implements OnInit {
 
   ngOnInit() {
 
+    this.carregar();
+
+  }
+
+  carregar() {
     this.listaService.getLista().subscribe(resp => {
       this.enderecos = resp;
     });
 
   }
 
- }
+  excluirLista(id: number) {
+    console.log('excluir', id);
+
+    console.log(this.enderecos);
+
+
+    this.listaService.excluir(id).subscribe(_ => {
+      this.enderecos.splice(id, 1);
+      this.carregar();
+    });
+
+  }
+
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ListaService } from './../lista/lista.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Endereco } from './../shared/endereco';
@@ -16,7 +16,8 @@ export class CadastroComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private listaService: ListaService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private routes: Router
   ) { }
 
   ngOnInit() {
@@ -43,6 +44,7 @@ export class CadastroComponent implements OnInit {
       numero: [''],
       complemento: [''],
       cep: [''],
+      bairro: [''],
       cidade: [''],
       estado: ['']
 
@@ -50,9 +52,18 @@ export class CadastroComponent implements OnInit {
   }
 
   salvar() {
-    console.log(this.form.value);
 
-    this.listaService.create(this.form.value);
+    this.listaService.create(this.form.value).subscribe(success => {
+      console.log('Sucesso');
+      this.routes.navigate(['lista']);
+    }, error => {
+      console.log('erro');
+    },
+      () => {
+        console.log('Request OK');
+
+      });
+
 
   }
 

@@ -1,44 +1,58 @@
 {
   "endereco": [
     {
-      "id": 1,
-      "nome": "Maria Tereza da Silva",
-      "endereco": "Praça da Sé",
-      "numero": "233",
-      "complemento": "Lado A",
-      "cep": "01000100",
+      "nome": "Maria Eduarda de Souza",
+      "endereco": "Rua Cachoeira Alta",
+      "numero": "56",
+      "complemento": "",
+      "cep": "08140020",
+      "bairro": "Itaim",
       "cidade": "São Paulo",
-      "estado": "SP"
+      "estado": "SP",
+      "id": 1
     },
     {
-      "id": 2,
-      "nome": "Jaqueline Souza",
-      "endereco": "Praça da Sé",
-      "numero": "443",
-      "complemento": "Bloca A apt 45",
-      "cep": "0100100",
+      "nome": "Carolina da Silva",
+      "endereco": "Rua Paranagua",
+      "numero": "12",
+      "complemento": "",
+      "cep": "08150030",
+      "bairro": "Ermelino Matarazzo",
       "cidade": "São Paulo",
-      "estado": "SP"
+      "estado": "SP",
+      "id": 2
     },
     {
-      "id": 3,
-      "nome": "Anderson Carvalho",
-      "endereco": "Praça da Sé",
-      "numero": "156",
-      "complemento": "Lado b",
-      "cep": "0100100",
+      "nome": "Camila Prattes",
+      "endereco": "Rua Pasqual de Miranda",
+      "numero": "45",
+      "complemento": "",
+      "cep": "0813001",
+      "bairro": "Itaim",
       "cidade": "São Paulo",
-      "estado": "SP"
+      "estado": "SP",
+      "id": 3
     },
     {
-      "id": 4,
-      "nome": "Anderson Carvalho2",
-      "endereco": "Praça da Sé",
-      "numero": "156",
-      "complemento": "Lado b",
-      "cep": "0100100",
+      "nome": "Regiane",
+      "endereco": "Rua Fantasia ",
+      "numero": "23",
+      "complemento": "",
+      "cep": "0814040",
+      "bairro": "Vila Valdemar",
       "cidade": "São Paulo",
-      "estado": "SP"
+      "estado": "SP",
+      "id": 4
     }
-  ]
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

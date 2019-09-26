@@ -17,10 +17,18 @@
         <td>{{ item.complemento }}</td>
         <td>
           <div class="float-right">
-            <button type="button" class="btn btn-outline-primary btn-sm mr-2" [routerLink]="['/cadastro', i]">
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-sm mr-2"
+              [routerLink]="['/cadastro', item.id]"
+            >
               Alterar
             </button>
-            <button type="button" class="btn btn-outline-danger btn-sm" [routerLink]="['/cadastro', i]">
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              (click)="excluirLista(item.id)"
+            >
               Excluir
             </button>
           </div>
@@ -28,4 +36,12 @@
       </tr>
     </tbody>
   </table>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-outline-primary btn-sm" [routerLink]="['/cadastro']">
+        Adicionar
+      </button>
+    </div>
+  </div>
 </div>

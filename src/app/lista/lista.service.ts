@@ -21,17 +21,24 @@ export class ListaService {
     return this.http.get<Endereco[]>(this.API);
   }
 
-  loadById(id: number) {
-    return this.http.get(`${this.API}/${id}`).pipe(
+  loadById(id: number): Observable<Endereco> {
+    return this.http.get<Endereco>(`${this.API}/${id}`).pipe(
       take(1)
     );
   }
 
-  create(end: Endereco) {
-    debugger
-    return this.http.post(`${this.API}`, end, httpOptions).pipe(
+  create(end: Endereco): Observable<Endereco> {
+    return this.http.post<Endereco>(this.API, end, httpOptions).pipe(
       take(1),
-      tap(t => console.log(t))
+      tap(t => console.log('API', t))
     );
   }
+
+  excluir(id: number): Observable<Endereco> {
+    return this.http.delete<Endereco>(`${this.API}/${id}`, httpOptions)
+      .pipe(
+        tap(_ => console.log(id))
+      );
+  }
+
 }

@@ -12,6 +12,9 @@ import { Endereco } from './../shared/endereco';
 export class CadastroComponent implements OnInit {
 
   form: FormGroup;
+  endereco: Endereco;
+
+
 
   constructor(
     private route: ActivatedRoute,
@@ -24,16 +27,18 @@ export class CadastroComponent implements OnInit {
 
     this.route.params.subscribe((params: any) => {
       const id = params['id'];
-      // console.log(id);
       const cadastro$ = this.listaService.loadById(id);
 
-      // cadastro$.subscribe()
+      cadastro$.subscribe((endereco: Endereco) => {
+
+        this.endereco = endereco;
+        this.atualizarForm(endereco);
+
+
+      });
 
     });
-
     this.validacaoForm();
-
-
   }
 
   validacaoForm() {
@@ -51,6 +56,19 @@ export class CadastroComponent implements OnInit {
     });
   }
 
+  atualizarForm(endereco: Endereco) {
+    this.form.patchValue({
+      nome: endereco.nome,
+      endereco: endereco.endereco,
+      numero: endereco.numero,
+      complemento: endereco.complemento,
+      cep: endereco.cep,
+      bairro: endereco.bairro,
+      cidade: endereco.cidade,
+      estado: endereco.estado
+    });
+  }
+
   salvar() {
 
     this.listaService.create(this.form.value).subscribe(success => {
@@ -61,12 +79,17 @@ export class CadastroComponent implements OnInit {
     },
       () => {
         console.log('Request OK');
-
       });
 
 
   }
 
+  atualizar() {
 
+    debugger
 
+    this.listaService.atualizar(this.endereco).subscribe(success => {
+      console.log('Entrou', success);
+    });
+  }
 }

@@ -1,58 +1,26 @@
 {
   "endereco": [
     {
-      "nome": "Maria Eduarda de Souza",
+      "nome": "Michelle Almeida",
       "endereco": "Rua Cachoeira Alta",
-      "numero": "56",
+      "numero": "20",
       "complemento": "",
-      "cep": "08140020",
+      "cep": "08140030",
       "bairro": "Itaim",
       "cidade": "São Paulo",
       "estado": "SP",
       "id": 1
     },
     {
-      "nome": "Carolina da Silva",
-      "endereco": "Rua Paranagua",
-      "numero": "12",
-      "complemento": "",
-      "cep": "08150030",
-      "bairro": "Ermelino Matarazzo",
+      "nome": "Marcello Nazario",
+      "endereco": "Rua das Piriquitas",
+      "numero": "69",
+      "complemento": "Boca Quente",
+      "cep": "08160010",
+      "bairro": "Itaquera",
       "cidade": "São Paulo",
       "estado": "SP",
       "id": 2
-    },
-    {
-      "nome": "Camila Prattes",
-      "endereco": "Rua Pasqual de Miranda",
-      "numero": "45",
-      "complemento": "",
-      "cep": "0813001",
-      "bairro": "Itaim",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "id": 3
-    },
-    {
-      "nome": "Regiane",
-      "endereco": "Rua Fantasia ",
-      "numero": "23",
-      "complemento": "",
-      "cep": "0814040",
-      "bairro": "Vila Valdemar",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "id": 4
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

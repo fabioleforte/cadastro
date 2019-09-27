@@ -17,6 +17,7 @@ export class ListaComponent implements OnInit {
 
     this.carregar();
 
+
   }
 
   carregar() {
@@ -26,10 +27,8 @@ export class ListaComponent implements OnInit {
 
   }
 
-  excluirLista(id: number) {
-    console.log('excluir', id);
 
-    console.log(this.enderecos);
+  excluirLista(id: number) {
 
 
     this.listaService.excluir(id).subscribe(_ => {
@@ -38,5 +37,7 @@ export class ListaComponent implements OnInit {
     });
 
   }
+
+
 
 }

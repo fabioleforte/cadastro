@@ -41,4 +41,13 @@ export class ListaService {
       );
   }
 
+
+  atualizar(end: Endereco): Observable<any> {
+    debugger
+    return this.http.put(this.API, end, httpOptions)
+      .pipe(
+        tap(_ => console.log(end))
+      );
+  }
+
 }

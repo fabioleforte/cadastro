@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListaService } from './lista.service';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-lista',
@@ -11,7 +12,7 @@ export class ListaComponent implements OnInit {
 
   public enderecos = [];
 
-  constructor(private listaService: ListaService) { }
+  constructor(private listaService: ListaService, private toastrService: ToastrService) { }
 
   ngOnInit() {
 
@@ -33,7 +34,8 @@ export class ListaComponent implements OnInit {
 
     this.listaService.excluir(id).subscribe(_ => {
       this.enderecos.splice(id, 1);
-      this.carregar();
+      this.carregar();;
+      this.toastrService.success('Excluído com Sucesso!');
     });
 
   }

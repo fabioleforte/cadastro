@@ -21,6 +21,17 @@
       "cidade": "São Paulo",
       "estado": "SP",
       "id": 2
+    },
+    {
+      "nome": "Camila Prattes",
+      "endereco": "Rua Pasqual de Miranda",
+      "numero": "67",
+      "complemento": "ytys",
+      "cep": "0813001",
+      "bairro": "yyty",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "id": 3
     }
   ]
 }

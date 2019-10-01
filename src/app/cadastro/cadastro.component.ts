@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ListaService } from './../lista/lista.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Endereco } from './../shared/endereco';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cadastro',
@@ -20,7 +21,8 @@ export class CadastroComponent implements OnInit {
     private route: ActivatedRoute,
     private listaService: ListaService,
     private fb: FormBuilder,
-    private routes: Router
+    private routes: Router,
+    private toastrs: ToastrService
   ) { }
 
   ngOnInit() {
@@ -72,7 +74,8 @@ export class CadastroComponent implements OnInit {
   salvar() {
 
     this.listaService.create(this.form.value).subscribe(success => {
-      console.log('Sucesso');
+      // console.log('Sucesso');
+      this.toastrs.success('Salvo com Sucesso');
       this.routes.navigate(['lista']);
     }, error => {
       console.log('erro');

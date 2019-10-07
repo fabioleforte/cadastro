@@ -1,4 +1,5 @@
-export interface Endereco {
+export class Endereco {
+  id: number;
   nome: string;
   endereco: string;
   numero: number;

@@ -33,41 +33,46 @@ export class CadastroComponent implements OnInit {
 
       cadastro$.subscribe((endereco: Endereco) => {
 
-        this.endereco = endereco;
-        this.atualizarForm(endereco);
+        console.log('Inicialização', endereco);
 
+
+        this.endereco = endereco;
+
+        this.atualizarForm(endereco);
 
       });
 
     });
-    this.validacaoForm();
+    this.validacaoForm(new Endereco());
   }
 
-  validacaoForm() {
+  validacaoForm(end: Endereco) {
 
     this.form = this.fb.group({
-      nome: [''],
-      endereco: [''],
-      numero: [''],
-      complemento: [''],
-      cep: [''],
-      bairro: [''],
-      cidade: [''],
-      estado: ['']
+      id: ['', end.id],
+      nome: ['', end.nome],
+      endereco: ['', end.endereco],
+      numero: ['', end.numero],
+      complemento: ['', end.complemento],
+      cep: ['', end.cep],
+      bairro: ['', end.bairro],
+      cidade: ['', end.cidade],
+      estado: ['', end.estado]
 
     });
   }
 
-  atualizarForm(endereco: Endereco) {
+  atualizarForm(end) {
     this.form.patchValue({
-      nome: endereco.nome,
-      endereco: endereco.endereco,
-      numero: endereco.numero,
-      complemento: endereco.complemento,
-      cep: endereco.cep,
-      bairro: endereco.bairro,
-      cidade: endereco.cidade,
-      estado: endereco.estado
+      id: end.id,
+      nome: end.nome,
+      endereco: end.endereco,
+      numero: end.numero,
+      complemento: end.complemento,
+      cep: end.cep,
+      bairro: end.bairro,
+      cidade: end.cidade,
+      estado: end.estado
     });
   }
 
@@ -78,7 +83,7 @@ export class CadastroComponent implements OnInit {
       this.toastrs.success('Salvo com Sucesso');
       this.routes.navigate(['lista']);
     }, error => {
-      console.log('erro');
+      this.toastrs.error('Indiponibilidade, tente novamente mais tarde!');
     },
       () => {
         console.log('Request OK');
@@ -88,11 +93,14 @@ export class CadastroComponent implements OnInit {
   }
 
   atualizar() {
-
-    debugger
-
-    this.listaService.atualizar(this.endereco).subscribe(success => {
-      console.log('Entrou', success);
-    });
+    this.listaService.atualizar(this.form.value).subscribe(success => {
+      this.toastrs.success('Salvo com Sucesso');
+      this.routes.navigate(['lista']);
+    }, error => {
+      this.toastrs.error('Indiponibilidade, tente novamente mais tarde!');
+    },
+      () => {
+        console.log('Request OK');
+      });
   }
 }

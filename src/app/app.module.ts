@@ -25,7 +25,7 @@ import { ListaComponent } from './lista/lista.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 2000,
+      timeOut: 1000,
       positionClass: 'toast-top-right'
     })
   ],

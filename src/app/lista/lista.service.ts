@@ -42,9 +42,8 @@ export class ListaService {
   }
 
 
-  atualizar(end: Endereco): Observable<any> {
-    debugger
-    return this.http.put(this.API, end, httpOptions)
+  atualizar(end: any): Observable<any> {
+    return this.http.put(`${this.API}/${end.id}`, end, httpOptions)
       .pipe(
         tap(_ => console.log(end))
       );

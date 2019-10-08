@@ -95,7 +95,11 @@
     </div>
   </div>
 
-  <button class="btn btn-outline-success mr-2" (click)="salvar()">Salvar</button>
-  <button class="btn btn-outline-primary mr-2" (click)="atualizar()">Atualizar</button>
+  <button class="btn btn-outline-success mr-2" (click)="salvar()" *ngIf="habilitaSalvar">
+    Salvar
+  </button>
+  <button class="btn btn-outline-primary mr-2" (click)="atualizar()" *ngIf="habilitaAtualizar">
+    Atualizar
+  </button>
   <a class="btn btn-outline-danger mr-2" href="/lista">Cancelar</a>
 </form>

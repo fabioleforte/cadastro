@@ -30,16 +30,10 @@ export class ListaComponent implements OnInit {
 
 
   excluirLista(id: number) {
-
-
     this.listaService.excluir(id).subscribe(_ => {
       this.enderecos.splice(id, 1);
       this.carregar();;
       this.toastrService.success('Excluído com Sucesso!');
     });
-
   }
-
-
-
 }

@@ -14,8 +14,8 @@ export class CadastroComponent implements OnInit {
 
   form: FormGroup;
   endereco: Endereco;
-
-
+  habilitaSalvar: boolean;
+  habilitaAtualizar: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,19 +27,23 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit() {
 
+    this.habilitaSalvar = false;
+    this.habilitaAtualizar = false;
     this.route.params.subscribe((params: any) => {
       const id = params['id'];
+
+      if (id === '') {
+        this.habilitaSalvar = true;
+        this.habilitaAtualizar = false;
+      } else {
+        this.habilitaSalvar = false;
+        this.habilitaAtualizar = true;
+      }
       const cadastro$ = this.listaService.loadById(id);
 
       cadastro$.subscribe((endereco: Endereco) => {
-
-        console.log('Inicialização', endereco);
-
-
         this.endereco = endereco;
-
         this.atualizarForm(endereco);
-
       });
 
     });

@@ -21,17 +21,6 @@
       "bairro": "08120030",
       "cidade": "São Paulo",
       "estado": "SP"
-    },
-    {
-      "id": 4,
-      "nome": "Maria ",
-      "endereco": "Rua Cachoeira Alta",
-      "numero": "202",
-      "complemento": "Itaim Paulista",
-      "cep": "08140030",
-      "bairro": "08130020",
-      "cidade": "São Paulo",
-      "estado": "SP"
     }
   ]
 }

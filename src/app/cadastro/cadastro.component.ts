@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListaService } from './../lista/lista.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Endereco } from './../shared/endereco';
 import { ToastrService } from 'ngx-toastr';
 
@@ -16,6 +16,7 @@ export class CadastroComponent implements OnInit {
   endereco: Endereco;
   habilitaSalvar: boolean;
   habilitaAtualizar: boolean;
+  pt = '[0-9]+$';
 
   constructor(
     private route: ActivatedRoute,
@@ -32,7 +33,7 @@ export class CadastroComponent implements OnInit {
     this.route.params.subscribe((params: any) => {
       const id = params['id'];
 
-      if (id === '') {
+      if (id === '' || id === undefined) {
         this.habilitaSalvar = true;
         this.habilitaAtualizar = false;
       } else {
@@ -53,15 +54,15 @@ export class CadastroComponent implements OnInit {
   validacaoForm(end: Endereco) {
 
     this.form = this.fb.group({
-      id: ['', end.id],
-      nome: ['', end.nome],
-      endereco: ['', end.endereco],
-      numero: ['', end.numero],
-      complemento: ['', end.complemento],
-      cep: ['', end.cep],
-      bairro: ['', end.bairro],
-      cidade: ['', end.cidade],
-      estado: ['', end.estado]
+      id: [end.id],
+      nome: [end.nome, Validators.compose([Validators.required, Validators.minLength(3)])],
+      endereco: [end.endereco, Validators.compose([Validators.minLength(3)])],
+      numero: [end.numero],
+      complemento: [end.complemento, Validators.compose([Validators.pattern('[a-zA-Z ]*')])],
+      cep: [end.cep, [Validators.required, Validators.maxLength(3)]],
+      bairro: [end.bairro],
+      cidade: [end.cidade],
+      estado: [end.estado]
 
     });
   }

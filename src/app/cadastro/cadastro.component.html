@@ -9,6 +9,7 @@
           formControlName="nome"
           aria-describedby="nomeHelp"
           placeholder="Digite o nome"
+          maxLength="100"
         />
       </div>
     </div>
@@ -24,6 +25,7 @@
           formControlName="endereco"
           aria-describedby="enderecoHelp"
           placeholder="Digite o endereço"
+          maxLength="100"
         />
       </div>
     </div>
@@ -31,7 +33,7 @@
       <div class="form-group">
         <label for="numero">Número</label>
         <input
-          type="text"
+          type="number"
           class="form-control"
           formControlName="numero"
           aria-describedby="numeroHelp"
@@ -55,7 +57,12 @@
     <div class="col-md-2">
       <div class="form-group">
         <label for="cep">CEP</label>
-        <input type="text" class="form-control" formControlName="cep" aria-describedby="cepHelp" />
+        <input
+          type="number"
+          class="form-control"
+          formControlName="cep"
+          aria-describedby="cepHelp"
+        />
       </div>
     </div>
 
@@ -95,11 +102,21 @@
     </div>
   </div>
 
-  <button class="btn btn-outline-success mr-2" (click)="salvar()" *ngIf="habilitaSalvar">
+  <button
+    class="btn btn-outline-success mr-2"
+    (click)="salvar()"
+    *ngIf="habilitaSalvar"
+    [disabled]="form.invalid"
+  >
     Salvar
   </button>
   <button class="btn btn-outline-primary mr-2" (click)="atualizar()" *ngIf="habilitaAtualizar">
     Atualizar
   </button>
   <a class="btn btn-outline-danger mr-2" href="/lista">Cancelar</a>
+
+  <pre>
+    {{ form.value | json }}
+    {{ form.valid | json }}
+  </pre>
 </form>

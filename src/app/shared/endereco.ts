@@ -1,11 +1,14 @@
 export class Endereco {
-  id = 0;
+  id: number;
   nome = '';
   endereco = '';
   numero: number;
   complemento = '';
   bairro = '';
-  cep = 0;
+  cep: number;
   cidade = '';
   estado = '';
+  telefoneRes: number;
+  telefoneCel: number;
+  email = '';
 }

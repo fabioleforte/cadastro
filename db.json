@@ -9,7 +9,10 @@
       "cep": "08140030",
       "bairro": "Itaim",
       "cidade": "São Paulo",
-      "estado": "SP"
+      "estado": "SP",
+      "telefone_Res": "11 23456899",
+      "telefone_Cel": "11 23456899",
+      "email": "teste@teste"
     },
     {
       "id": 3,
@@ -20,7 +23,10 @@
       "cep": 8150050,
       "bairro": "Parque Santa Rita",
       "cidade": "São Paulo",
-      "estado": "SP"
+      "estado": "SP",
+      "telefone_Res": "11 23456899",
+      "telefone_Cel": "11 23456899",
+      "email": "teste@teste"
     },
     {
       "id": 7,
@@ -31,7 +37,10 @@
       "cep": 1001000,
       "bairro": "Sé",
       "cidade": "São Paulo",
-      "estado": "SP"
+      "estado": "SP",
+      "telefone_Res": "11 23456899",
+      "telefone_Cel": "11 23456899",
+      "email": "teste@teste"
     },
     {
       "id": 8,
@@ -42,7 +51,10 @@
       "cep": 8255100,
       "bairro": "Conjunto Residencial José Bonifácio",
       "cidade": "São Paulo",
-      "estado": "SP"
+      "estado": "SP",
+      "telefone_Res": "11 23456899",
+      "telefone_Cel": "11 23456899",
+      "email": "teste@teste"
     },
     {
       "id": 9,
@@ -53,7 +65,24 @@
       "cep": 6727181,
       "bairro": "Água Espraiada (Caucaia do Alto)",
       "cidade": "Cotia",
-      "estado": "SP"
+      "estado": "SP",
+      "telefone_Res": "1123456899",
+      "telefone_Cel": "1123456899",
+      "email": "teste@teste"
+    },
+    {
+      "id": 10,
+      "nome": "Testesss",
+      "endereco": "Rua Enseada de Titóia",
+      "numero": 67,
+      "complemento": "teste",
+      "cep": "08140050",
+      "bairro": "Jardim Tuã",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "telefoneRes": "1122334455",
+      "telefoneCel": "11987654321",
+      "email": "teste@teste.com"
     }
   ]
 }

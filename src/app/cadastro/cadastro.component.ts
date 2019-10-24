@@ -65,8 +65,10 @@ export class CadastroComponent implements OnInit {
       cep: [end.cep],
       bairro: [end.bairro],
       cidade: [end.cidade],
-      estado: [end.estado]
-
+      estado: [end.estado],
+      telefoneRes: [end.telefoneRes],
+      telefoneCel: [end.telefoneCel],
+      email: [end.email]
     });
   }
 
@@ -80,7 +82,10 @@ export class CadastroComponent implements OnInit {
       cep: end.cep,
       bairro: end.bairro,
       cidade: end.cidade,
-      estado: end.estado
+      estado: end.estado,
+      telefoneRes: end.telefoneRes,
+      telefoneCel: end.telefoneCel,
+      email: end.email
     });
   }
 

@@ -111,19 +111,36 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="cep">Telefone Res.</label>
-        <input type="text" class="form-control" mask="(00) 0000-0000" />
+        <input
+          type="text"
+          class="form-control"
+          formControlName="telefoneRes"
+          aria-describedby="telefoneResHelp"
+          mask="(00) 0000-0000"
+        />
       </div>
     </div>
     <div class="col-md-3">
       <div class="form-group">
         <label for="cep">Telefone Cel.</label>
-        <input type="text" class="form-control" mask="(00) 00000-0000" />
+        <input
+          type="text"
+          class="form-control"
+          formControlName="telefoneCel"
+          aria-describedby="telefoneCelHelp"
+          mask="(00) 00000-0000"
+        />
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
         <label for="cep">E-mail</label>
-        <input type="text" class="form-control" s />
+        <input
+          type="text"
+          class="form-control"
+          formControlName="email"
+          aria-describedby="emailHelp"
+        />
       </div>
     </div>
   </div>

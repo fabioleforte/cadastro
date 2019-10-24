@@ -14,12 +14,45 @@
     {
       "id": 3,
       "nome": "Camila Prattes",
-      "endereco": "Rua Pasqual de Miranda",
-      "numero": "67",
-      "complemento": "Itaim Paulista",
-      "cep": "0813001",
-      "bairro": "08120030",
+      "endereco": "Rua Manoel Pitta Júnior",
+      "numero": 78,
+      "complemento": "casa",
+      "cep": 8150050,
+      "bairro": "Parque Santa Rita",
       "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "id": 7,
+      "nome": "Maria ",
+      "endereco": "Praça da Sé",
+      "numero": 34,
+      "complemento": "lado ímpar",
+      "cep": 1001000,
+      "bairro": "Sé",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "id": 8,
+      "nome": "Marcello Nazario",
+      "endereco": "Rua Dario Pozzo",
+      "numero": 105,
+      "complemento": "",
+      "cep": 8255100,
+      "bairro": "Conjunto Residencial José Bonifácio",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "id": 9,
+      "nome": "Carlão ",
+      "endereco": "Rua Betel",
+      "numero": 666,
+      "complemento": "casa",
+      "cep": 6727181,
+      "bairro": "Água Espraiada (Caucaia do Alto)",
+      "cidade": "Cotia",
       "estado": "SP"
     }
   ]

@@ -4,6 +4,7 @@ import { ListaService } from './../lista/lista.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Endereco } from './../shared/endereco';
 import { ToastrService } from 'ngx-toastr';
+import { CadastroService } from './cadastro.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -23,7 +24,8 @@ export class CadastroComponent implements OnInit {
     private listaService: ListaService,
     private fb: FormBuilder,
     private routes: Router,
-    private toastrs: ToastrService
+    private toastrs: ToastrService,
+    private cadastroService: CadastroService
   ) { }
 
   ngOnInit() {
@@ -39,13 +41,14 @@ export class CadastroComponent implements OnInit {
       } else {
         this.habilitaSalvar = false;
         this.habilitaAtualizar = true;
-      }
-      const cadastro$ = this.listaService.loadById(id);
+        const cadastro$ = this.listaService.loadById(id);
 
-      cadastro$.subscribe((endereco: Endereco) => {
-        this.endereco = endereco;
-        this.atualizarForm(endereco);
-      });
+        cadastro$.subscribe((endereco: Endereco) => {
+          this.endereco = endereco;
+          this.atualizarForm(endereco);
+
+        });
+      }
 
     });
     this.validacaoForm(new Endereco());
@@ -55,11 +58,11 @@ export class CadastroComponent implements OnInit {
 
     this.form = this.fb.group({
       id: [end.id],
-      nome: [end.nome, Validators.compose([Validators.required, Validators.minLength(3)])],
-      endereco: [end.endereco, Validators.compose([Validators.minLength(3)])],
+      nome: [end.nome],
+      endereco: [end.endereco],
       numero: [end.numero],
-      complemento: [end.complemento, Validators.compose([Validators.pattern('[a-zA-Z ]*')])],
-      cep: [end.cep, [Validators.required, Validators.maxLength(3)]],
+      complemento: [end.complemento],
+      cep: [end.cep],
       bairro: [end.bairro],
       cidade: [end.cidade],
       estado: [end.estado]
@@ -67,7 +70,7 @@ export class CadastroComponent implements OnInit {
     });
   }
 
-  atualizarForm(end) {
+  atualizarForm(end: Endereco) {
     this.form.patchValue({
       id: end.id,
       nome: end.nome,
@@ -81,10 +84,20 @@ export class CadastroComponent implements OnInit {
     });
   }
 
-  salvar() {
+  populaCEP(dados) {
+    this.form.patchValue({
+      endereco: dados.logradouro,
+      numero: dados.numero,
+      complemento: dados.complemento,
+      // cep: dados.cep,
+      bairro: dados.bairro,
+      cidade: dados.localidade,
+      estado: dados.uf
+    });
+  }
 
+  salvar() {
     this.listaService.create(this.form.value).subscribe(success => {
-      // console.log('Sucesso');
       this.toastrs.success('Salvo com Sucesso');
       this.routes.navigate(['lista']);
     }, error => {
@@ -93,8 +106,6 @@ export class CadastroComponent implements OnInit {
       () => {
         console.log('Request OK');
       });
-
-
   }
 
   atualizar() {
@@ -108,4 +119,16 @@ export class CadastroComponent implements OnInit {
         console.log('Request OK');
       });
   }
+
+  consultaCEP(cep) {
+
+    this.cadastroService.pesquisarCEP(cep).subscribe(dados => {
+
+      console.log('Dados', dados);
+
+      this.populaCEP(dados);
+    });
+  }
+
+
 }

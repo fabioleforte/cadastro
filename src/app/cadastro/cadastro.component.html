@@ -25,7 +25,7 @@
           formControlName="endereco"
           aria-describedby="enderecoHelp"
           placeholder="Digite o endereço"
-          maxLength="100"
+          disabled
         />
       </div>
     </div>
@@ -58,10 +58,12 @@
       <div class="form-group">
         <label for="cep">CEP</label>
         <input
-          type="number"
+          type="text"
           class="form-control"
           formControlName="cep"
           aria-describedby="cepHelp"
+          (blur)="consultaCEP($event.target.value)"
+          mask="00000-000"
         />
       </div>
     </div>
@@ -74,6 +76,7 @@
           class="form-control"
           formControlName="bairro"
           aria-describedby="bairroHelp"
+          disabled
         />
       </div>
     </div>
@@ -85,6 +88,7 @@
           class="form-control"
           formControlName="cidade"
           aria-describedby="cidadeHelp"
+          disabled
         />
       </div>
     </div>
@@ -97,11 +101,32 @@
           class="form-control"
           formControlName="estado"
           aria-describedby="estadoHelp"
+          disabled
         />
       </div>
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="cep">Telefone Res.</label>
+        <input type="text" class="form-control" mask="(00) 0000-0000" />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="cep">Telefone Cel.</label>
+        <input type="text" class="form-control" mask="(00) 00000-0000" />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="cep">E-mail</label>
+        <input type="text" class="form-control" s />
+      </div>
+    </div>
+  </div>
   <button
     class="btn btn-outline-success mr-2"
     (click)="salvar()"

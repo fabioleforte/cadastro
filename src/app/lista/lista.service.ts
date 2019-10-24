@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap, take } from 'rxjs/operators';
+import { catchError, map, tap, take, retry } from 'rxjs/operators';
 import { Endereco } from './../shared/endereco';
 
 const httpOptions = {
@@ -48,5 +48,4 @@ export class ListaService {
         tap(_ => console.log(end))
       );
   }
-
 }

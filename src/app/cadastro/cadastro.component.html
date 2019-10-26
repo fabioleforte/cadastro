@@ -9,7 +9,32 @@
           formControlName="nome"
           aria-describedby="nomeHelp"
           placeholder="Digite o nome"
-          maxLength="100"
+          maxLengtd="100"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="cep">Telefone Res.</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="telefoneRes"
+          aria-describedby="telefoneResHelp"
+          mask="(00) 0000-0000"
+        />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="cep">Telefone Cel.</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="telefoneCel"
+          aria-describedby="telefoneCelHelp"
+          mask="(00) 00000-0000"
         />
       </div>
     </div>
@@ -108,7 +133,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-3">
+    <!-- <div class="col-md-3">
       <div class="form-group">
         <label for="cep">Telefone Res.</label>
         <input
@@ -131,7 +156,7 @@
           mask="(00) 00000-0000"
         />
       </div>
-    </div>
+    </div> -->
     <div class="col-md-6">
       <div class="form-group">
         <label for="cep">E-mail</label>
@@ -144,6 +169,132 @@
       </div>
     </div>
   </div>
+
+  <!-- Controle de Tratamento -->
+  <div class="row">
+    <div class="col-12">
+      <h4 style="text-align: center;">CONTROLE DE TRATAMENTE</h4>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="data">Data</label>
+        <input type="date" class="form-control" aria-describedby="datalHelp" />
+      </div>
+    </div>
+    <div class="col-md-1">
+      <div class="form-group">
+        <label for="data">Qtde</label>
+        <input type="text" class="form-control" aria-describedby="datalHelp" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="data">Tratamento</label>
+        <input type="text" class="form-control" aria-describedby="datalHelp" />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="data">Valor</label>
+        <input type="text" class="form-control" aria-describedby="datalHelp" />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="data">Soma</label>
+        <br />
+        <label for="">R$22,00</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-md-2">
+      <button class="btn btn-primary">+Incluir</button>
+    </div>
+  </div>
+
+  <!-- Controle de Pagamento -->
+  <div class="row">
+    <div class="col-12">
+      <h4 style="text-align: center;">CONTROLE DE PAGAMENTO</h4>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="data">Data</label>
+        <input type="date" class="form-control" aria-describedby="datalHelp" />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="data">Pagou</label>
+        <input type="text" class="form-control" aria-describedby="datalHelp" />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="data">Soma</label>
+        <br />
+        <label for="">R$22,00</label>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="data">Deve</label>
+        <input type="text" class="form-control" aria-describedby="datalHelp" />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="data">Caixa</label>
+        <br />
+        <input type="text" class="form-control" aria-describedby="datalHelp" />
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="data"></label>
+        <br />
+        <i class="fas trash-alt"></i>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-md-2">
+      <button class="btn btn-primary">+Incluir</button>
+    </div>
+  </div>
+
+  <!-- <table class="table table-bordered">
+    <thead>
+      <tr scope="row" style="text-align: center;">
+        <th colspan="6">
+          CONTROLE DO TRATAMENTE
+        </th>
+        <th colspan="6">
+          CONTROLE DE PAGAMENTO
+        </th>
+      </tr>
+      <tr style="text-align: center;">
+        <th colspan="1">Data</th>
+        <th colspan="1">Qtde</th>
+        <th colspan="2">Tratamento</th>
+        <th colspan="1">Valor</th>
+        <th colspan="1">Soma</th>
+        <th colspan="1">Data</th>
+        <th colspan="1">Pagou</th>
+        <th colspan="1">Soma</th>
+        <th colspan="1">Deve</th>
+        <th colspan="2">Caixa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+      </tr>
+    </tbody>
+  </table> -->
+
   <button
     class="btn btn-outline-success mr-2"
     (click)="salvar()"

@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ListaComponent } from './lista/lista.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ListaComponent } from './lista/lista.component';
       progressBar: true
 
     }),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    NgxPaginationModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

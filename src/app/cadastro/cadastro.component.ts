@@ -127,13 +127,13 @@ export class CadastroComponent implements OnInit {
 
   consultaCEP(cep) {
 
-    this.cadastroService.pesquisarCEP(cep).subscribe(dados => {
+    this.cadastroService.pesquisarCEP(cep).subscribe((dados: any) => {
 
-      console.log('Dados', dados);
-
-      this.populaCEP(dados);
+      if (!dados.erro) {
+        this.populaCEP(dados);
+      } else {
+        this.toastrs.error('CEP Obrigatório!');
+      }
     });
   }
-
-
 }

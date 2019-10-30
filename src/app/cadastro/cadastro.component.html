@@ -26,6 +26,7 @@
         />
       </div>
     </div>
+
     <div class="col-md-3">
       <div class="form-group">
         <label for="cep">Telefone Cel.</label>
@@ -178,25 +179,46 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="data">Data</label>
-        <input type="date" class="form-control" aria-describedby="datalHelp" />
+        <input
+          type="date"
+          class="form-control"
+          aria-describedby="datalHelp"
+          formControlName="dataTratamento"
+        />
       </div>
     </div>
     <div class="col-md-1">
       <div class="form-group">
         <label for="data">Qtde</label>
-        <input type="text" class="form-control" aria-describedby="datalHelp" />
+        <input
+          type="text"
+          class="form-control"
+          aria-describedby="datalHelp"
+          formControlName="quantidade"
+        />
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <label for="data">Tratamento</label>
-        <input type="text" class="form-control" aria-describedby="datalHelp" />
+        <input
+          type="text"
+          class="form-control"
+          aria-describedby="datalHelp"
+          formControlName="tratamento"
+        />
       </div>
     </div>
     <div class="col-md-2">
       <div class="form-group">
         <label for="data">Valor</label>
-        <input type="text" class="form-control" mask="separator.0" thousandSeparator="," />
+        <input
+          type="text"
+          class="form-control"
+          mask="separator.0"
+          thousandSeparator=","
+          ormControlName="valor"
+        />
       </div>
     </div>
     <div class="col-md-1">
@@ -240,12 +262,6 @@
       </div>
     </div>
   </div>
-
-  <!-- <div class="form-group row">
-    <div class="col-md-2">
-      <button class="btn btn-primary">+Incluir</button>
-    </div>
-  </div> -->
 
   <!-- Controle de Pagamento -->
   <div class="row">
@@ -314,11 +330,6 @@
       </div>
     </div>
   </div>
-  <!-- <div class="form-group row">
-    <div class="col-2">
-      <button class="btn btn-primary">+Incluir</button>
-    </div>
-  </div> -->
 
   <!-- <table class="table table-bordered">
     <thead>

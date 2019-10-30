@@ -5,9 +5,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Endereco } from './../shared/endereco';
 import { ToastrService } from 'ngx-toastr';
 import { CadastroService } from './cadastro.service';
-import { BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { listLocales } from 'ngx-bootstrap/chronos';
-
 
 @Component({
   selector: 'app-cadastro',
@@ -20,8 +17,7 @@ export class CadastroComponent implements OnInit {
   endereco: Endereco;
   habilitaSalvar: boolean;
   habilitaAtualizar: boolean;
-  locale = 'pt-br';
-  locales = listLocales();
+  pt = '[0-9]+$';
 
   constructor(
     private route: ActivatedRoute,
@@ -29,11 +25,8 @@ export class CadastroComponent implements OnInit {
     private fb: FormBuilder,
     private routes: Router,
     private toastrs: ToastrService,
-    private cadastroService: CadastroService,
-    private localeService: BsLocaleService
-  ) {
-    this.localeService.use(this.locale);
-  }
+    private cadastroService: CadastroService
+  ) { }
 
   ngOnInit() {
 
@@ -75,7 +68,21 @@ export class CadastroComponent implements OnInit {
       estado: [end.estado],
       telefoneRes: [end.telefoneRes],
       telefoneCel: [end.telefoneCel],
-      email: [end.email]
+      email: [end.email],
+      tratamento: this.fb.array([{
+        dataTratamento: ['', end.tratamento.data],
+        tratamento: [end.tratamento.tratamento],
+        quantidade: [end.tratamento.quantidade],
+        valor: [end.tratamento.valor],
+        somaTratamento: [end.tratamento.soma]
+      }]),
+      // pagamento: this.fb.array([{
+      //   dataPagamento: ['', end.pagamento.data],
+      //   pagou: ['', end.pagamento.pagou],
+      //   somaPagamento: ['', end.pagamento.soma],
+      //   deve: ['', end.pagamento.deve],
+      //   caixa: ['', end.pagamento.caixa]
+      // }])
     });
   }
 
@@ -92,11 +99,24 @@ export class CadastroComponent implements OnInit {
       estado: end.estado,
       telefoneRes: end.telefoneRes,
       telefoneCel: end.telefoneCel,
-      email: end.email
+      email: end.email,
+      // tratamento: [{
+      //   dataPagamento: end.tratamento.data,
+      //   quantidade: end.tratamento.quantidade,
+      //   valor: end.tratamento.valor,
+      //   somaTratamento: end.tratamento.soma
+      // }],
+      // pagamento: [{
+      //   dataPagamento: end.pagamento.data,
+      //   pagou: end.pagamento.pagou,
+      //   somaPagamento: end.pagamento.soma,
+      //   deve: end.pagamento.deve,
+      //   caixa: end.pagamento.caixa
+      // }]
     });
   }
 
-  populaCEP(dados) {
+  populaCEP(dados: any) {
     this.form.patchValue({
       endereco: dados.logradouro,
       numero: dados.numero,
@@ -114,10 +134,7 @@ export class CadastroComponent implements OnInit {
       this.routes.navigate(['lista']);
     }, error => {
       this.toastrs.error('Indiponibilidade, tente novamente mais tarde!');
-    },
-      () => {
-        console.log('Request OK');
-      });
+    });
   }
 
   atualizar() {
@@ -126,10 +143,7 @@ export class CadastroComponent implements OnInit {
       this.routes.navigate(['lista']);
     }, error => {
       this.toastrs.error('Indiponibilidade, tente novamente mais tarde!');
-    },
-      () => {
-        console.log('Request OK');
-      });
+    });
   }
 
   consultaCEP(cep) {
@@ -143,5 +157,4 @@ export class CadastroComponent implements OnInit {
       }
     });
   }
-
 }

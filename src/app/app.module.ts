@@ -1,6 +1,5 @@
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import ptBr from '@angular/common/locales/pt';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,11 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ListaComponent } from './lista/lista.component';
-import { defineLocale } from 'ngx-bootstrap/chronos';
-import { deLocale } from 'ngx-bootstrap/locale';
 
-defineLocale('de', deLocale);
-registerLocaleData(ptBr);
 library.add(fas);
 
 
@@ -44,7 +39,6 @@ library.add(fas);
       timeOut: 2000,
       positionClass: 'toast-top-right',
       progressBar: true
-
     }),
     NgxMaskModule.forRoot(),
     NgxPaginationModule,
@@ -53,8 +47,9 @@ library.add(fas);
     TooltipModule.forRoot(),
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
+
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Endereco } from './../shared/endereco';
 import { ToastrService } from 'ngx-toastr';
 import { CadastroService } from './cadastro.service';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { listLocales } from 'ngx-bootstrap/chronos';
+
 
 @Component({
   selector: 'app-cadastro',
@@ -17,7 +20,8 @@ export class CadastroComponent implements OnInit {
   endereco: Endereco;
   habilitaSalvar: boolean;
   habilitaAtualizar: boolean;
-  pt = '[0-9]+$';
+  locale = 'pt-br';
+  locales = listLocales();
 
   constructor(
     private route: ActivatedRoute,
@@ -25,8 +29,11 @@ export class CadastroComponent implements OnInit {
     private fb: FormBuilder,
     private routes: Router,
     private toastrs: ToastrService,
-    private cadastroService: CadastroService
-  ) { }
+    private cadastroService: CadastroService,
+    private localeService: BsLocaleService
+  ) {
+    this.localeService.use(this.locale);
+  }
 
   ngOnInit() {
 
@@ -136,4 +143,5 @@ export class CadastroComponent implements OnInit {
       }
     });
   }
+
 }

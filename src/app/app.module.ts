@@ -1,24 +1,36 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import ptBr from '@angular/common/locales/pt';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxMaskModule } from 'ngx-mask';
+import { OrderModule } from 'ngx-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ListaComponent } from './lista/lista.component';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { OrderModule } from 'ngx-order-pipe';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { deLocale } from 'ngx-bootstrap/locale';
+
+defineLocale('de', deLocale);
+registerLocaleData(ptBr);
+library.add(fas);
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaComponent,
     CadastroComponent,
-
   ],
   imports: [
     CommonModule,
@@ -36,9 +48,13 @@ import { OrderModule } from 'ngx-order-pipe';
     }),
     NgxMaskModule.forRoot(),
     NgxPaginationModule,
-    OrderModule
+    OrderModule,
+    FontAwesomeModule,
+    TooltipModule.forRoot(),
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

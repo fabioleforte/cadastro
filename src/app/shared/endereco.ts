@@ -1,3 +1,5 @@
+import { Tratamento } from './tratamento';
+import { Pagamento } from './pagamento';
 export class Endereco {
   id: number;
   nome = '';
@@ -11,4 +13,6 @@ export class Endereco {
   telefoneRes: number;
   telefoneCel: number;
   email = '';
+  tratamento?: Tratamento;
+  pagamento?: Pagamento;
 }

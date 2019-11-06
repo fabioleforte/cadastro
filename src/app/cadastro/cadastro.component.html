@@ -160,7 +160,7 @@
     </div> -->
     <div class="col-md-6">
       <div class="form-group">
-        <label for="cep">E-mail</label>
+        <label for="email">E-mail</label>
         <input
           type="text"
           class="form-control"
@@ -174,97 +174,110 @@
   <!-- Controle de Tratamento -->
   <div class="row">
     <div class="col-12">
-      <h4 style="text-align: center;">CONTROLE DE TRATAMENTE</h4>
+      <h4 style="text-align: center;">CONTROLE DE TRATAMENTO</h4>
     </div>
-    <div class="col-md-3">
-      <div class="form-group">
-        <label for="data">Data</label>
-        <input
-          type="date"
-          class="form-control"
-          aria-describedby="datalHelp"
-          formControlName="dataTratamento"
-        />
-      </div>
-    </div>
-    <div class="col-md-1">
-      <div class="form-group">
-        <label for="data">Qtde</label>
-        <input
-          type="text"
-          class="form-control"
-          aria-describedby="datalHelp"
-          formControlName="quantidade"
-        />
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-        <label for="data">Tratamento</label>
-        <input
-          type="text"
-          class="form-control"
-          aria-describedby="datalHelp"
-          formControlName="tratamento"
-        />
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <label for="data">Valor</label>
-        <input
-          type="text"
-          class="form-control"
-          mask="separator.0"
-          thousandSeparator=","
-          ormControlName="valor"
-        />
-      </div>
-    </div>
-    <div class="col-md-1">
-      <div class="form-group">
-        <label for="data">Soma</label>
-        <br />
-        <label for="">R$22,00</label>
-      </div>
-    </div>
-    <div class="col-1">
-      <div class="form-group" style="margin-top: 6px;">
-        <label for="data">&nbsp;</label>
-        <br />
-        <fa-icon
-          data-toggle="tooltip"
-          data-placement="top"
-          [icon]="['fa', 'plus-circle']"
-          size="xl"
-          style="color:#28a745;"
-          tooltip="Adicionar"
-          class="pointer"
-        ></fa-icon>
-        <fa-icon
-          data-toggle="tooltip"
-          data-placement="top"
-          [icon]="['fa', 'edit']"
-          size="xl"
-          style="color:#0062cc; margin-left: 5px;"
-          tooltip="Editar"
-          class="pointer"
-        ></fa-icon>
-        <fa-icon
-          data-toggle="tooltip"
-          data-placement="top"
-          [icon]="['fa', 'trash-alt']"
-          size="xl"
-          style="color:#dc3545;margin-left: 5px;"
-          tooltip="Excluir"
-          class="pointer"
-        ></fa-icon>
+    <div
+      class="col-12"
+      formArrayName="tratamentos"
+      *ngFor="let item of tratamentos.controls; let i = index"
+    >
+      <div class="row" [formGroupName]="i">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="data">Data</label>
+            <input
+              type="date"
+              class="form-control"
+              aria-describedby="datalHelp"
+              formControlName="data"
+            />
+          </div>
+        </div>
+        <div class="col-md-1">
+          <div class="form-group">
+            <label for="data">Qtde</label>
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="datalHelp"
+              formControlName="quantidade"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="data">Tratamento</label>
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="datalHelp"
+              formControlName="tratamento"
+            />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="data">Valor</label>
+            <input
+              type="text"
+              class="form-control"
+              mask="separator.0"
+              thousandSeparator=","
+              formControlName="valor"
+            />
+          </div>
+        </div>
+        <div class="col-md-1">
+          <div class="form-group">
+            <label for="data">Soma</label>
+            <br />
+            <label for="">R$22,00</label>
+          </div>
+        </div>
+        <div class="col-1">
+          <div class="form-group" style="margin-top: 6px;">
+            <label for="data">&nbsp;</label>
+            <br />
+            <fa-icon
+              data-toggle="tooltip"
+              data-placement="top"
+              [icon]="['fa', 'plus-circle']"
+              size="xl"
+              style="color:#28a745;"
+              tooltip="Adicionar"
+              class="pointer"
+            ></fa-icon>
+            <fa-icon
+              data-toggle="tooltip"
+              data-placement="top"
+              [icon]="['fa', 'edit']"
+              size="xl"
+              style="color:#0062cc; margin-left: 5px;"
+              tooltip="Editar"
+              class="pointer"
+            ></fa-icon>
+            <fa-icon
+              (click)="excluir(i)"
+              data-toggle="tooltip"
+              data-placement="top"
+              [icon]="['fa', 'trash-alt']"
+              size="xl"
+              style="color:#dc3545;margin-left: 5px;"
+              tooltip="Excluir"
+              class="pointer"
+            ></fa-icon>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <button class="btn btn-outline-primary mr-2" (click)="addTratamentos()">
+    +Incluir
+  </button>
+  <br /><br />
 
   <!-- Controle de Pagamento -->
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-12">
       <h4 style="text-align: center;">CONTROLE DE PAGAMENTO</h4>
     </div>
@@ -329,7 +342,7 @@
         ></fa-icon>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- <table class="table table-bordered">
     <thead>
@@ -373,4 +386,6 @@
     Atualizar
   </button>
   <a class="btn btn-outline-danger mr-2" href="/lista">Cancelar</a>
+
+  <pre>{{ form.value | json }}</pre>
 </form>

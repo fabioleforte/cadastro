@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListaService } from './../lista/lista.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, FormArray } from '@angular/forms';
 import { Endereco } from './../shared/endereco';
 import { ToastrService } from 'ngx-toastr';
 import { CadastroService } from './cadastro.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-cadastro',
@@ -17,7 +18,7 @@ export class CadastroComponent implements OnInit {
   endereco: Endereco;
   habilitaSalvar: boolean;
   habilitaAtualizar: boolean;
-  pt = '[0-9]+$';
+  data: [] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -69,21 +70,32 @@ export class CadastroComponent implements OnInit {
       telefoneRes: [end.telefoneRes],
       telefoneCel: [end.telefoneCel],
       email: [end.email],
-      tratamento: this.fb.array([{
-        dataTratamento: ['', end.tratamento.data],
-        tratamento: [end.tratamento.tratamento],
-        quantidade: [end.tratamento.quantidade],
-        valor: [end.tratamento.valor],
-        somaTratamento: [end.tratamento.soma]
-      }]),
-      // pagamento: this.fb.array([{
-      //   dataPagamento: ['', end.pagamento.data],
-      //   pagou: ['', end.pagamento.pagou],
-      //   somaPagamento: ['', end.pagamento.soma],
-      //   deve: ['', end.pagamento.deve],
-      //   caixa: ['', end.pagamento.caixa]
-      // }])
+      tratamentos: this.fb.array([
+        this.addTratamentosGroup()
+      ])
     });
+  }
+
+  get tratamentos() {
+    return this.form.get('tratamentos') as FormArray;
+  }
+
+  addTratamentosGroup(): FormGroup {
+    return this.fb.group({
+      data: [''],
+      quantidade: [''],
+      tratamento: [''],
+      valor: [''],
+      soma: ['']
+    });
+  }
+
+  addTratamentos() {
+    this.tratamentos.push(this.addTratamentosGroup());
+  }
+
+  excluir(i: number) {
+    this.tratamentos.removeAt(i);
   }
 
   atualizarForm(end: Endereco) {
@@ -100,22 +112,23 @@ export class CadastroComponent implements OnInit {
       telefoneRes: end.telefoneRes,
       telefoneCel: end.telefoneCel,
       email: end.email,
-      // tratamento: [{
-      //   dataPagamento: end.tratamento.data,
-      //   quantidade: end.tratamento.quantidade,
-      //   valor: end.tratamento.valor,
-      //   somaTratamento: end.tratamento.soma
-      // }],
-      // pagamento: [{
-      //   dataPagamento: end.pagamento.data,
-      //   pagou: end.pagamento.pagou,
-      //   somaPagamento: end.pagamento.soma,
-      //   deve: end.pagamento.deve,
-      //   caixa: end.pagamento.caixa
-      // }]
+      // tratamentos: this.fb.group([
+      //   this.atualizaTratamento()
+      // ])
     });
   }
 
+
+  atualizaTratamento() {
+    let end: Endereco;
+    this.form.patchValue({
+      data: end.tratamento.data,
+      quantidade: end.tratamento.quantidade,
+      tratamento: end.tratamento.tratamento,
+      valor: end.tratamento.valor,
+      soma: end.tratamento.soma
+    });
+  }
   populaCEP(dados: any) {
     this.form.patchValue({
       endereco: dados.logradouro,

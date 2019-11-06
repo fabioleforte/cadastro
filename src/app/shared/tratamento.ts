@@ -1,5 +1,5 @@
 export class Tratamento {
-  data = new Date();
+  data: Date = null;
   quantidade = 0;
   tratamento = '';
   valor: 0;

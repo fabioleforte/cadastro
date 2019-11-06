@@ -180,7 +180,16 @@
       "estado": "SP",
       "telefoneRes": "1198776666",
       "telefoneCel": "11223345455",
-      "email": "teste@teste.com"
+      "email": "teste@teste.com",
+      "tratamentos": [
+        {
+          "data": "2019-11-06",
+          "quantidade": "12",
+          "tratamento": "22",
+          "valor": "22",
+          "soma": ""
+        }
+      ]
     },
     {
       "id": 18,
@@ -195,6 +204,89 @@
       "telefoneRes": null,
       "telefoneCel": null,
       "email": "gfg@fdfd.con"
+    },
+    {
+      "id": 19,
+      "nome": "zFabio",
+      "endereco": "Rua Enseada de Titóia",
+      "numero": 34,
+      "complemento": "casa",
+      "cep": "08140050",
+      "bairro": "Jardim Tuã",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "telefoneRes": "1122445566",
+      "telefoneCel": "11988888888",
+      "email": "fabio@teste.com.br",
+      "tratamentos": [
+        {
+          "data": "2019-11-06",
+          "quantidade": "23",
+          "tratamento": "testesss",
+          "valor": "555",
+          "soma": ""
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "nome": "Michelle Almeida",
+      "endereco": "Travessa Megilo de Agrigento",
+      "numero": 77,
+      "complemento": "",
+      "cep": "08140030",
+      "bairro": "Jardim Luciana",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "telefoneRes": "1122222223",
+      "telefoneCel": "11999999999",
+      "email": "tetse@teste",
+      "tratamentos": [
+        {
+          "data": "2019-11-06",
+          "quantidade": "77",
+          "tratamento": "77777",
+          "valor": "99",
+          "soma": ""
+        },
+        {
+          "data": "2019-11-07",
+          "quantidade": "66",
+          "tratamento": "888",
+          "valor": "88888",
+          "soma": ""
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "nome": "Coxa ",
+      "endereco": "Rua Maria José da Conceição",
+      "numero": 34,
+      "complemento": "AP",
+      "cep": "05730170",
+      "bairro": "Vila Andrade",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "telefoneRes": "2233333333",
+      "telefoneCel": "11998888888",
+      "email": "coxa@gmail.com",
+      "tratamentos": [
+        {
+          "data": "2019-11-06",
+          "quantidade": "1",
+          "tratamento": "Canal",
+          "valor": "600",
+          "soma": ""
+        },
+        {
+          "data": "2019-11-06",
+          "quantidade": "1",
+          "tratamento": "Clareamanto",
+          "valor": "1000",
+          "soma": ""
+        }
+      ]
     }
   ]
 }

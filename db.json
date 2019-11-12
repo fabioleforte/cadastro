@@ -220,10 +220,10 @@
       "email": "fabio@teste.com.br",
       "tratamentos": [
         {
-          "data": "2019-11-06",
+          "data": "2019-11-12",
           "quantidade": "23",
-          "tratamento": "testesss",
-          "valor": "555",
+          "tratamento": "eeee",
+          "valor": "333",
           "soma": ""
         }
       ]
@@ -273,17 +273,17 @@
       "email": "coxa@gmail.com",
       "tratamentos": [
         {
-          "data": "2019-11-06",
-          "quantidade": "1",
-          "tratamento": "Canal",
-          "valor": "600",
+          "data": "2019-11-14",
+          "quantidade": "23",
+          "tratamento": "teste",
+          "valor": "33444",
           "soma": ""
         },
         {
-          "data": "2019-11-06",
-          "quantidade": "1",
-          "tratamento": "Clareamanto",
-          "valor": "1000",
+          "data": "2019-11-20",
+          "quantidade": "78",
+          "tratamento": "65555",
+          "valor": "66666",
           "soma": ""
         }
       ]

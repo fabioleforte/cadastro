@@ -176,12 +176,8 @@
     <div class="col-12">
       <h4 style="text-align: center;">CONTROLE DE TRATAMENTO</h4>
     </div>
-    <div
-      class="col-12"
-      formArrayName="tratamentos"
-      *ngFor="let item of tratamentos.controls; let i = index"
-    >
-      <div class="row" [formGroupName]="i">
+    <div class="col-12" formArrayName="tratamentos">
+      <div class="row" [formGroupName]="i" *ngFor="let item of tratamentos.controls; let i = index">
         <div class="col-md-3">
           <div class="form-group">
             <label for="data">Data</label>

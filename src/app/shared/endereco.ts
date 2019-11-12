@@ -13,6 +13,6 @@ export class Endereco {
   telefoneRes: number;
   telefoneCel: number;
   email = '';
-  tratamento?: Tratamento;
-  pagamento?: Pagamento;
+  tratamentos?: Tratamento[] = [];
+  pagamentos?: Pagamento[] = [];
 }

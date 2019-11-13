@@ -214,13 +214,7 @@
         <div class="col-md-2">
           <div class="form-group">
             <label for="data">Valor</label>
-            <input
-              type="text"
-              class="form-control"
-              mask="separator.0"
-              thousandSeparator=","
-              formControlName="valor"
-            />
+            <input type="text" class="form-control" formControlName="valor" />
           </div>
         </div>
         <div class="col-md-1">
@@ -264,6 +258,8 @@
             ></fa-icon>
           </div>
         </div>
+
+        {{ item[1] | json }}
       </div>
     </div>
   </div>

@@ -54,10 +54,10 @@ export class CadastroComponent implements OnInit {
       }
 
     });
-    this.validacaoForm();
+    this.createForm(new Endereco());
   }
 
-  validacaoForm() {
+  createForm(end: Endereco) {
     this.form = this.fb.group({
       id: [''],
       nome: [''],
@@ -113,47 +113,12 @@ export class CadastroComponent implements OnInit {
       telefoneRes: end.telefoneRes,
       telefoneCel: end.telefoneCel,
       email: end.email,
-      // tratamentos: this.fb.array(end.tratamentos.map(item => this.atualizaTratamento(item)))
-      tratamentos: this.fb.array([end.tratamentos.map(x => console.log(x))])
     });
 
-
+    const tratamentoFormGroups = end.tratamentos.map(tratamento => this.fb.group(tratamento));
+    const tratamentoFromArray = this.fb.array(tratamentoFormGroups);
+    this.form.setControl('tratamentos', tratamentoFromArray);
   }
-
-
-  atualizaTratamento(item) {
-
-    console.log('Item', item);
-
-
-    // const t = this.fb.group({
-    //   data: [item.data],
-    //   quantidade: [item.quantidade],
-    //   tratamento: [item.tratamento],
-    //   valor: [item.valor],
-    //   soma: [item.soma]
-    // });
-
-    // return t;
-
-
-    // const ctrl = this.form.controls.tratamentos as FormArray;
-    // this.ends.forEach(trat => {
-
-    //   console.log('trat', trat.tratamentos);
-
-    //   ctrl.push(this.fb.group({
-    //     data: [trat.tratamentos.data],
-    //     quantidade: [trat.tratamentos.quantidade],
-    //     tratamento: [trat.tratamentos.tratamento],
-    //     valor: [trat.tratamentos.valor],
-    //     soma: [trat.tratamentos.soma]
-    //   }));
-    // });
-
-
-  }
-
 
   populaCEP(dados: any) {
     this.form.patchValue({
